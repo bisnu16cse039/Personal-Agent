@@ -1,8 +1,9 @@
 # Core LangChain & LangGraph dependencies
 langchain==0.2.6
 langchain-core==0.2.10
+langchain-openai==0.1.8
 langgraph==0.1.2
-langsmith==0.1.47
+langsmith==0.1.75
 
 # Local LLM inference
 ollama==0.2.1

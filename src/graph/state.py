@@ -15,7 +15,8 @@ Field naming convention:
 """
 
 from typing import Annotated, Optional
-from langchain_core.messages import BaseMessage, add_messages
+from langchain_core.messages import BaseMessage
+from langgraph.graph import add_messages
 
 
 def add_list(x: list, y: list) -> list:
