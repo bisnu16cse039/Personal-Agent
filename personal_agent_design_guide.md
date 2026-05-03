@@ -568,7 +568,7 @@ After working through Section 3, record your choices here. This becomes the spec
 | Node granularity | Monolithic / Atomic / Functional grouping | **C — Atomic single-responsibility** | Unit-testable; easy to swap; essential for evaluation and profiling |
 | LLM call strategy | Single call / Two-pass / Multi-model | **B — Two-pass: think then respond** | Quality over latency; thinking field is evaluation signal |
 | Primary model | qwen3:14b / qwen3:30b-a3b / deepseek-r1:14b | **qwen3:14b** | Best instruction following for budget; ~11GB at Q5_K_M fits 24GB RAM; upgrade path to 30b-a3b clear |
-| UI framework | Chainlit / Streamlit | *To decide* | |
+| UI framework | Chainlit / Streamlit | *Chainlit* | More convenient in this use case |
 
 ---
 

@@ -216,3 +216,30 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Personal Agent specific
+# Environment variables (local config)
+.env
+.env.local
+.env.*.local
+
+# Data persistence
+data/
+*.db
+chroma_db/
+
+# Logs
+logs/
+*.log
+
+# Local model cache (Ollama)
+.ollama/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Evaluation logs & traces
+evaluation_logs/
+traces/
