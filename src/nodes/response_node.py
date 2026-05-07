@@ -11,15 +11,17 @@ from langchain_core.messages import AIMessage
 
 def response_node(state: dict) -> dict:
     """
-    Format AI response and metadata for terminal output.
+    Format AI response and metadata for terminal output (Phase 3+).
 
     This node is the exit point of the graph. It extracts the final response
-    from the AI message, combines it with latency and token metadata, and
-    returns a formatted dictionary suitable for display to the user.
+    from the AI message, combines it with latency and token metadata, includes
+    the thinking layer reasoning, and returns a formatted dictionary suitable
+    for display to the user.
 
     Args:
         state (dict): The agent state containing:
             - messages (list): Full conversation history with final AIMessage
+            - thinking (str): Hidden reasoning from thinking_node (Phase 3)
             - _config (dict): Configuration including metadata dict
             - Other state fields managed by LangGraph
 
@@ -27,6 +29,7 @@ def response_node(state: dict) -> dict:
         dict: Updated state with formatted response:
             - final_response: {
                 "response": str,  # The AI's text response
+                "thinking": str,  # Hidden reasoning from thinking layer (Phase 3)
                 "metadata": {     # Execution metadata
                     "latency_ms": float,
                     "input_tokens": int,
@@ -77,6 +80,9 @@ def response_node(state: dict) -> dict:
     # Extract response content
     response_text = last_message.content
 
+    # Extract thinking from state (Phase 3+)
+    thinking = state.get("thinking", None)
+
     # Extract metadata from config
     config = state.get("_config", {})
     metadata = config.get("metadata", {})
@@ -90,6 +96,7 @@ def response_node(state: dict) -> dict:
     # Format final response for user
     formatted_response = {
         "response": response_text,
+        "thinking": thinking,  # Include reasoning for transparency/debugging
         "metadata": {
             "latency_ms": metadata.get("latency_ms", 0),
             "input_tokens": metadata.get("input_tokens", 0),
