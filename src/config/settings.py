@@ -26,10 +26,13 @@ class Settings:
         )
         self.PRIMARY_MODEL: str = os.getenv("PRIMARY_MODEL", "qwen3:14b")
         self.MODEL_TEMPERATURE: float = float(os.getenv("MODEL_TEMPERATURE", "0.7"))
-        self.MODEL_MAX_TOKENS: int = int(os.getenv("MODEL_MAX_TOKENS", "2048"))
+        self.MODEL_MAX_TOKENS: int = int(os.getenv("MODEL_MAX_TOKENS", "1024"))
 
         # LangSmith tracing (optional)
         self.LANGSMITH_ENABLED: bool = os.getenv("LANGSMITH_ENABLED", "false").lower() == "true"
+
+        # Phase 3: Thinking layer (can be disabled for faster Phase 2 mode)
+        self.ENABLE_THINKING_LAYER: bool = os.getenv("ENABLE_THINKING_LAYER", "false").lower() == "true"
 
         # Data paths
         self.SQLITE_CHECKPOINT_PATH: str = os.getenv(
@@ -47,7 +50,8 @@ class Settings:
             f"Settings("
             f"model={self.PRIMARY_MODEL}, "
             f"temp={self.MODEL_TEMPERATURE}, "
-            f"ollama={self.OLLAMA_BASE_URL}"
+            f"ollama={self.OLLAMA_BASE_URL}, "
+            f"thinking_layer={self.ENABLE_THINKING_LAYER}"
             f")"
         )
 

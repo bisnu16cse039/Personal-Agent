@@ -6,9 +6,11 @@ graph = build_graph()
 
 # Define test queries
 test_queries = [
-    "Two years ago, a father was 5 times as old as his son. In 6 years, he will be 3 times as old.Find their current ages.",
-    "You have only 3 coins, and they add up to 30. One of them is not a 10-unit coin. What are the coins?",
-    "Find three consecutive integers such that the square of the middle number is 4 more than the product of the other two."
+    "Location of Dinajpur in Bangladesh?",
+    "What is AI?"
+    # "Two years ago, a father was 5 times as old as his son. In 6 years, he will be 3 times as old.Find their current ages.",
+    # "You have only 3 coins, and they add up to 30. One of them is not a 10-unit coin. What are the coins?",
+    # "Find three consecutive integers such that the square of the middle number is 4 more than the product of the other two.", 
 ]
 
 # Run all tests
